@@ -1,6 +1,28 @@
+import Image from 'next/image'
+import { MenuItem } from '..'
+
+const menuItems = [
+  {
+    title: 'Dashboard',
+    subtitle: 'Your personal dashboard',
+    icon: <svg className="w-6 h-6" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 16.5c-3.59 0-6.5-2.91-6.5-6.5S8.41 5.5 12 5.5s6.5 2.91 6.5 6.5-2.91 6.5-6.5 6.5zm0-11c-2.485 0-4.5 2.015-4.5 4.5S9.515 16.5 12 16.5s4.5-2.015 4.5-4.5-2.015-4.5-4.5-4.5z" />
+    </svg>,
+    path: '/dashboard/main'
+  },
+  {
+    title: 'Counter',
+    subtitle: 'Manage your projects',
+    icon: <svg className="w-6 h-6" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12 2L2 7l10 5 10-5-10-5zm0 2.291l8.387 4.194L12 10.97 3.613 8.485 12 4.291zM2 13v7a1 1 0 001 1h18a1 1 0 001-1v-7l-10 5-10-5zm12 8.485l-8.387-4.194L12 13.03l8.387 4.26L14 21.485z" />
+    </svg>,
+    path: '/dashboard/counter'
+  }
+]
+
 export const Sidebar = () => {
   return (
-    <div id="menu" className="bg-gray-900 min-h-screen z-10 text-slate-300 w-96 left-0 h-screen overflow-y-scroll">
+    <div id="menu" className="bg-gray-900 min-h-screen z-10 text-slate-300 w-96 left-0 h-screen overflow-y-auto">
       <div id="logo" className="my-4 px-6">
         <h1 className="text-lg md:text-2xl font-bold text-white">Dash<span className="text-blue-500">8</span>.</h1>
         <p className="text-slate-500 text-sm">Manage your actions and activities</p>
@@ -9,7 +31,13 @@ export const Sidebar = () => {
         <p className="text-slate-500">Welcome back,</p>
         <a href="#" className="inline-flex space-x-2 items-center">
           <span>
-            <img className="rounded-full w-8 h-8" src="https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=128&q=80" alt="" />
+            <Image
+              className="rounded-full w-8 h-8"
+              src="https://images.unsplash.com/photo-1542909168-82c3e7fdca5c"
+              alt=""
+              width={48}
+              height={58}
+            />
           </span>
           <span className="text-sm md:text-base font-bold">
             Edward Tompson
@@ -17,29 +45,11 @@ export const Sidebar = () => {
         </a>
       </div>
       <div id="nav" className="w-full px-6">
-        <a href="#" className="w-full px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3 bg-blue-800 hover:bg-white/5 transition ease-linear duration-150">
-          <div>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 text-white">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
-            </svg>
-
-          </div>
-          <div className="flex flex-col">
-            <span className="text-lg font-bold leading-5 text-white">Dashboard</span>
-            <span className="text-sm text-white/50 hidden md:block">Data Overview</span>
-          </div>
-        </a>
-        <a href="#" className="w-full px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3 hover:bg-white/5 transition ease-linear duration-150">
-          <div>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
-            </svg>
-          </div>
-          <div className="flex flex-col">
-            <span className="text-lg text-slate-300 font-bold leading-5">Counter</span>
-            <span className="text-sm text-slate-500 hidden md:block">Estado local</span>
-          </div>
-        </a>
+        {
+          menuItems.map((item) => (
+            <MenuItem key={item.path} {...item} />
+          ))
+        }
       </div>
     </div>
   )
