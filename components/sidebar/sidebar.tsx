@@ -17,12 +17,20 @@ const menuItems = [
       <path fill="currentColor" d="M12 2L2 7l10 5 10-5-10-5zm0 2.291l8.387 4.194L12 10.97 3.613 8.485 12 4.291zM2 13v7a1 1 0 001 1h18a1 1 0 001-1v-7l-10 5-10-5zm12 8.485l-8.387-4.194L12 13.03l8.387 4.26L14 21.485z" />
     </svg>,
     path: '/dashboard/counter'
+  },
+  {
+    title: 'Pokemons',
+    subtitle: 'Static generation',
+    icon: <svg className="w-6 h-6" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M21.5 5h-3.586l-1.707-2.561A1 1 0 0014.293 2H9.707a1 1 0 00-.914.639L7.293 5H3.5a1 1 0 000 2h1.586l1.707 2.561A1 1 0 007.707 12H6v8a1 1 0 001 1h12a1 1 0 001-1v-8h-1.707a1 1 0 00-.914-.639L17.586 7H21.5a1 1 0 000-2zM9.293 4h5.414l1 1.5H8.293l1-1.5zm9.207 8H5.5v-6h3.586l1 1.5H14a1 1 0 001-1V6h3.914l1 1.5H5.5a1 1 0 010-2h15a1 1 0 011 1v8a1 1 0 01-1 1z" />
+    </svg>,
+    path: '/dashboard/pokemons'
   }
 ]
 
 export const Sidebar = () => {
   return (
-    <div id="menu" className="bg-gray-900 min-h-screen z-10 text-slate-300 w-96 left-0 h-screen overflow-y-auto">
+    <div id="menu" className="fixed bg-gray-900 min-h-screen z-10 text-slate-300 w-72 left-0 overflow-y-auto">
       <div id="logo" className="my-4 px-6">
         <h1 className="text-lg md:text-2xl font-bold text-white">Dash<span className="text-blue-500">8</span>.</h1>
         <p className="text-slate-500 text-sm">Manage your actions and activities</p>
