@@ -1,9 +1,10 @@
 import { type PokemonResponse } from '@/pokemons'
 import { pokeapiUrls } from './urls'
+import { type Pokemon } from '@/lib/types'
 
-export const getPokemons = async (id?: string, limit = 151, offset = 0) => {
+export const getPokemons = async (limit = 151, offset = 0) => {
   try {
-    const apiUrl = id === undefined ? pokeapiUrls.pokemons.all(limit, offset) : pokeapiUrls.pokemon(id)
+    const apiUrl = pokeapiUrls.pokemons.all(limit, offset)
     const response = await fetch(apiUrl)
 
     const data: PokemonResponse = await response.json()
@@ -18,5 +19,27 @@ export const getPokemons = async (id?: string, limit = 151, offset = 0) => {
   } catch (error) {
     console.error(error)
     return []
+  }
+}
+
+export const getPokemonById = async (id: string) => {
+  try {
+    const apiUrl = pokeapiUrls.pokemon(id)
+    const response = await fetch(apiUrl)
+
+    const data: Pokemon = await response.json()
+
+    const pokemon = {
+      abilities: data.abilities,
+      id: data.id,
+      name: data.name,
+      sprite: data.sprites.other?.dream_world.front_default,
+      types: data.types
+    }
+
+    return pokemon
+  } catch (error) {
+    console.error(error)
+    throw new Error('Error fetching pokemon')
   }
 }

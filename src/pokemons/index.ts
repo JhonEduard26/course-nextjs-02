@@ -1,3 +1,4 @@
+export { PokemonDetail } from './components/pokemon-detail'
 export { PokemonCard } from './components/pokemon-card'
 export { PokemonGrid } from './components/pokemon-grid'
 export type { PokemonResponse } from './interface/pokemon-response'

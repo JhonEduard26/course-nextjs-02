@@ -1,4 +1,6 @@
 import type { Metadata, ResolvingMetadata } from 'next'
+import { getPokemonById } from '@/services/pokeapi/pokemons'
+import { PokemonDetail } from '@/pokemons'
 
 interface Props {
   params: { id: string }
@@ -9,22 +11,19 @@ export async function generateMetadata (
   { params, searchParams }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  // read route params
   const id = params.id
 
-  // fetch data
-  const pokemonResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`).then(async (res) => await res.json())
+  const pokemonResponse = await getPokemonById(id)
 
   return {
-    title: pokemonResponse.title
+    title: pokemonResponse.name
   }
 }
 
-export default function Page ({ params, searchParams }: Props) {
+export default async function Page ({ params, searchParams }: Props) {
+  const pokemon = await getPokemonById(params.id)
+
   return (
-    <div>
-      <h1>{params.id}</h1>
-      <p>Search params: {JSON.stringify(searchParams)}</p>
-    </div>
+    <PokemonDetail {...pokemon} />
   )
 }
