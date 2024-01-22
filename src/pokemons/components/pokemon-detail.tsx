@@ -14,8 +14,8 @@ export const PokemonDetail = ({ abilities, id, name, sprite, types }: Props) => 
   return (
     <div className="flex justify-center items-center p-20 w-max m-auto rounded-lg bg-slate-900 text-white">
       <div>
-        <img
-          src={sprite}
+        <Image
+          src={`${sprite}`}
           width={320}
           height={320}
           alt={name}

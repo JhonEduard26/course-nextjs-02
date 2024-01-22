@@ -1,6 +1,7 @@
-import { type PokemonResponse } from '@/pokemons'
 import { pokeapiUrls } from './urls'
+import { notFound } from 'next/navigation'
 import { type Pokemon } from '@/lib/types'
+import { type PokemonResponse } from '@/pokemons'
 
 export const getPokemons = async (limit = 151, offset = 0) => {
   try {
@@ -40,6 +41,6 @@ export const getPokemonById = async (id: string) => {
     return pokemon
   } catch (error) {
     console.error(error)
-    throw new Error('Error fetching pokemon')
+    notFound()
   }
 }

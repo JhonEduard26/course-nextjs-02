@@ -4,8 +4,6 @@ import { getPokemons } from '@/services'
 export default async function PokemonsPage () {
   const pokemons = await getPokemons()
 
-  console.log(pokemons)
-
   return (
     <>
       <h1 className="mb-6 text-4xl font-semibold text-center">Pokedex Estática</h1>
