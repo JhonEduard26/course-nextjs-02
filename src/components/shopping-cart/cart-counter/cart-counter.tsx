@@ -1,22 +1,15 @@
 'use client'
 
-import { useState } from 'react'
+import { useAppDispatch, useAppSelector } from '@/store'
+import { decrement, increment } from '@/store/counter/counter-slice'
 
 interface Props {
   value?: number
 }
 
 export const CartCounter = ({ value = 0 }: Props) => {
-  const [count, setValue] = useState(value)
-
-  const handleIncrement = () => {
-    setValue(count + 1)
-  }
-
-  const handleDecrement = () => {
-    if (count === 0) return
-    setValue(count - 1)
-  }
+  const count = useAppSelector(state => state.counter.count)
+  const dispatch = useAppDispatch()
 
   return (
     <div className="flex flex-col items-center">
@@ -24,13 +17,13 @@ export const CartCounter = ({ value = 0 }: Props) => {
       <div className="flex gap-x-2">
         <button
           className="py-2.5 px-5 rounded-lg bg-slate-900 text-white hover:bg-slate-700 active:scale-[.97]"
-          onClick={handleIncrement}
+          onClick={() => dispatch(increment())}
         >
           Aumentar
         </button>
         <button
           className="py-2.5 px-5 rounded-lg bg-slate-900 text-white hover:bg-slate-700 active:scale-[.97]"
-          onClick={handleDecrement}
+          onClick={() => dispatch(decrement())}
         >
           Reducir
         </button>

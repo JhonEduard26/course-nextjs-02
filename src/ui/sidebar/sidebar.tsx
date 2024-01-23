@@ -25,6 +25,14 @@ const menuItems = [
       <path fill="currentColor" d="M21.5 5h-3.586l-1.707-2.561A1 1 0 0014.293 2H9.707a1 1 0 00-.914.639L7.293 5H3.5a1 1 0 000 2h1.586l1.707 2.561A1 1 0 007.707 12H6v8a1 1 0 001 1h12a1 1 0 001-1v-8h-1.707a1 1 0 00-.914-.639L17.586 7H21.5a1 1 0 000-2zM9.293 4h5.414l1 1.5H8.293l1-1.5zm9.207 8H5.5v-6h3.586l1 1.5H14a1 1 0 001-1V6h3.914l1 1.5H5.5a1 1 0 010-2h15a1 1 0 011 1v8a1 1 0 01-1 1z" />
     </svg>,
     path: '/dashboard/pokemons'
+  },
+  {
+    title: 'Favorites',
+    subtitle: 'Global state',
+    icon: <svg className="w-6 h-6" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12 2L9.5 8.5H2l6.5 4.5L7 21.5l5.5-6.5L18 21.5l-1.5-8.5L22 8.5h-7.5L12 2z" />
+    </svg>,
+    path: '/dashboard/favorites'
   }
 ]
 
