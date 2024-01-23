@@ -9,7 +9,7 @@ interface Props {
 export const PokemonCard = ({ id, name }: Props) => {
   return (
     <Link
-      href={`/dashboard/pokemon/${id}`}
+      href={`/dashboard/pokemons/${name}`}
       className="flex flex-col w-48 p-4 rounded-md bg-white text-gray-700 hover:bg-blue-700 hover:text-white"
     >
       <div className="flex items-center justify-center h-32 overflow-hidden rounded-md bg-slate-200 text-gray-700">
