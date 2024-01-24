@@ -1,3 +1,4 @@
+export { PokemonGridClient } from './components/client/pokemon-grid'
 export { PokemonDetail } from './components/pokemon-detail'
 export { PokemonCard } from './components/pokemon-card'
 export { PokemonGrid } from './components/pokemon-grid'

@@ -13,7 +13,8 @@ export const getPokemons = async (limit = 151, offset = 0) => {
     const pokemons = data.results.map((pokemon) => (
       {
         id: pokemon.url.split('/')[6],
-        name: pokemon.name
+        name: pokemon.name,
+        isFav: false
       }
     ))
     return pokemons

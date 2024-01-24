@@ -1,6 +1,11 @@
 import { PokemonGrid } from '@/pokemons'
 import { getPokemons } from '@/services'
 
+export const metadata = {
+  title: 'Pokemons',
+  description: ''
+}
+
 export default async function PokemonsPage () {
   const pokemons = await getPokemons()
 
