@@ -1,7 +1,8 @@
 'use client'
 
 import { useAppDispatch, useAppSelector } from '@/store'
-import { decrement, increment } from '@/store/counter/counter-slice'
+import { decrement, increment, initCountState } from '@/store/counter/counter-slice'
+import { useEffect } from 'react'
 
 interface Props {
   value?: number
@@ -10,6 +11,10 @@ interface Props {
 export const CartCounter = ({ value = 0 }: Props) => {
   const count = useAppSelector(state => state.counter.count)
   const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    dispatch(initCountState(value))
+  }, [dispatch, value])
 
   return (
     <div className="flex flex-col items-center">
